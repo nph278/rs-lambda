@@ -1,0 +1,15 @@
+[package]
+name = "rs-lambda"
+version = "0.1.0"
+edition = "2021"
+description = "A lambda calculus interpreter written in rust"
+homepage = "https://github.com/nph278/rs-lambda"
+repository = "https://github.com/nph278/rs-lambda"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reglex = "1"
+colored = "2"
+thiserror = "1"
