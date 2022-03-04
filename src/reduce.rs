@@ -26,16 +26,13 @@ fn replace(expr: &Expression, var: &str, replacement: &Expression) -> Expression
 pub fn reduce(input: &Expression) -> Option<Expression> {
     match input {
         Expression::Application(left, right) => match &**left {
-            Expression::Lambda(var, expr) => Some(replace(&expr, &var, right)),
+            Expression::Lambda(var, expr) => Some(replace(expr, var, right)),
             _ => {
                 if let Some(left) = reduce(left) {
                     Some(Expression::Application(Box::new(left), right.clone()))
                 } else {
-                    if let Some(right) = reduce(right) {
-                        Some(Expression::Application(left.clone(), Box::new(right)))
-                    } else {
-                        None
-                    }
+                    reduce(right)
+                        .map(|right| Expression::Application(left.clone(), Box::new(right)))
                 }
             }
         },

@@ -43,15 +43,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "lambda"
-version = "0.1.0"
-dependencies = [
- "colored",
- "reglex",
- "thiserror",
-]
-
-[[package]]
 name = "lazy_static"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -111,6 +102,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "80715ed06e0e9c4c697736c129d29ae954c1c3e61a55aa644711235d0cf6ca55"
 dependencies = [
  "regex",
+]
+
+[[package]]
+name = "rs-lambda"
+version = "1.0.0"
+dependencies = [
+ "colored",
+ "reglex",
+ "thiserror",
 ]
 
 [[package]]

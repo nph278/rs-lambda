@@ -38,7 +38,7 @@ fn parse_inner<T: Iterator<Item = Token>>(
         match tokens.peek() {
             Some(Token::Right) | None => return Ok(current),
             Some(_) => {
-                current = Expression::Application(Box::new(current), Box::new(parse_one(tokens)?))
+                current = Expression::Application(Box::new(current), Box::new(parse_one(tokens)?));
             }
         }
     }
@@ -59,7 +59,7 @@ pub fn parse(rules: &RuleList<Token>, input: &str, debug: bool) -> Result<Expres
     let res = parse_inner(&mut it);
 
     if let Some(x) = it.next() {
-        return Err(ParseError::UnexpectedToken(x));
+        Err(ParseError::UnexpectedToken(x))
     } else {
         if debug {
             println!("{}", format!("{:?}", res).blue());

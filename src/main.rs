@@ -33,7 +33,7 @@ fn main() {
             let mut input = String::new();
             stdin.read_line(&mut input).unwrap();
 
-            if input == "" {
+            if input.is_empty() {
                 exit(0)
             } else if input != "\n" {
                 match parse::parse(&rules, &input, debug) {
